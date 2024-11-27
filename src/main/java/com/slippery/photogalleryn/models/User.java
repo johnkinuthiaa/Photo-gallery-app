@@ -15,14 +15,12 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
     public String role ="USER";
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String userEmail;
     private String userPassword;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Image> images;
 
 }

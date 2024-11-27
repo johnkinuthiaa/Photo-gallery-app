@@ -15,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Image {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
     private LocalDateTime createdOn;
@@ -25,9 +26,6 @@ public class Image {
     private byte[] imageFile;
     private String imageType;
     private String fileName;
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 
 }
 
