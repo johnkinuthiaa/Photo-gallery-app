@@ -20,4 +20,8 @@ public class ImageController {
     public ResponseEntity<?> uploadFile(@RequestParam String category, @RequestParam MultipartFile imageFile) throws IOException {
         return ResponseEntity.ok(service.uploadImage(category,imageFile));
     }
+    @GetMapping("/get/image")
+    public ResponseEntity<Image> getImageById(@RequestParam Long id) {
+        return ResponseEntity.ok(service.getImageById(id));
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class ImageServiceImpl implements ImageService{
@@ -28,6 +29,10 @@ public class ImageServiceImpl implements ImageService{
 
     @Override
     public Image getImageById(Long id) {
-        return null;
+        Optional<Image> image =repository.findById(id);
+        if(image.isEmpty()){
+            throw new RuntimeException("image with id"+id+"not found");
+        }
+        return image.orElseThrow();
     }
 }
